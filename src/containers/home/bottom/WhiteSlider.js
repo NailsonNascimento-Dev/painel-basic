@@ -134,11 +134,17 @@ class WhiteSlider extends React.Component {
     const { power, theme, isEditMode, workMode } = this.props;
     const { brightness, kelvin } = this.state;
     return (
-      <AnimateView
-        style={styles.container}
-        hideValue={panelHeight}
-        value={power && isEditMode && workMode === WORKMODE.WHITE ? 0 : panelHeight}
-      >
+
+      // avento de animação 
+      //
+      // <AnimateView
+      //   style={styles.container}
+      //   hideValue={panelHeight}
+      //   value={power && isEditMode && workMode === WORKMODE.WHITE ? 0 : panelHeight}
+      // >
+
+
+        <>
         {Config.dpFun.isSupportWhiteBright && (
           <Slider
             icon={iconfont.brightness}
@@ -172,7 +178,8 @@ class WhiteSlider extends React.Component {
             />
           </TouchableOpacity>
         </View>
-      </AnimateView>
+        </>
+      // </AnimateView>
     );
   }
 }
