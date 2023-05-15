@@ -6,11 +6,12 @@ import configureStore from './redux/configureStore';
 import composeLayout from './composeLayout';
 
 import Home from './containers/home';
+import cenaScene from './containers/cenas';
 
 console.disableYellowBox = true;
 
 if (!__DEV__) {
-  console.log = () => {};
+  console.log = () => { };
 }
 
 export const Store = configureStore(initState);
@@ -39,13 +40,19 @@ class MainLayout extends NavigatorLayout {
   }
 
   renderScene(route, navigator) {
-    const routeProps = {
-      ...route,
-    };
+    const routeProps = {...route,};
+
+    console.log(" teste estou aqui");
+    console.log(routeProps);
+
     let { Element = View } = routeProps;
+    
     switch (route.id) {
       case 'main':
         Element = Home;
+        break;
+      case 'cenas':
+        Element = cenaScene;
         break;
       default:
         Element = View;
